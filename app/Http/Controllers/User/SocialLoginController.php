@@ -26,7 +26,7 @@ class SocialLoginController extends Controller {
 
         if ($user === null) {
             // Log in first time with social
-            $userData = User::create($information);
+            $userData = User::create($information); // mass assignment
             Social::create([
                 'user_id'        =>  $userData->id,
                 'social_id'       =>  $data->id,
@@ -36,6 +36,7 @@ class SocialLoginController extends Controller {
             return Redirect::route('user.event.index');
         } elseif($user->email == $data->email) {
             // User found
+            //Explain me this step.
             Social::create([
                 'user_id'         =>  $user->id,
                 'social_id'       =>  $data->id,
