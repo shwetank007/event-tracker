@@ -24,6 +24,8 @@ class Events extends Migration
             $table->string('title');
             $table->string('start_date');
             $table->string('end_date');
+            $table->string('allDay')
+                ->default("true");
             $table->rememberToken();
             $table->timestamps();
         });

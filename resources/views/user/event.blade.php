@@ -142,9 +142,8 @@
                 }
             },
 
-            events: [
-                {!! $information !!}
-            ]
+            events:{!! $information !!}
+
         });
     });
 
@@ -166,10 +165,9 @@
 
     function addEditUser(id) {
 
-        var regex=/^[0-9]+$/;
         var method = '';
         var container = '';
-        if(id.match(regex)) {
+        if(!isNaN(id)) {
 
             var url = "{{route('user.event.update',':id')}}";
             url = url.replace(':id',id);
